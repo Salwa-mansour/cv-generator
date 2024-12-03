@@ -1,0 +1,18 @@
+.header-data{
+  display: grid;
+  grid-template-areas: "main contact";
+  align-items: center;
+}
+.header-data form{
+  display: contents;
+}
+
+.header-data .main-data{
+    grid-area: main; 
+    padding-inline:calc(2* var(--main-spacing));
+    padding-block: calc(2* var(--main-spacing));
+}
+.header-data .details{
+    grid-area: contact;
+    padding: var(--main-spacing);
+}

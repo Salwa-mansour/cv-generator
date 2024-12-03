@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBriefcase } from "@fortawesome/free-solid-svg-icons"
 
 function ExperienceSection({printMode}){
     const [editMode,setEditMode] = useState(true)
@@ -38,7 +40,8 @@ function ExperienceSection({printMode}){
    
  if(editMode && !printMode){
     return (
-        <div>
+        <section>
+            <h3><FontAwesomeIcon icon={faBriefcase} />               Experience</h3>
             <form onSubmit={setData} >
                 <div>
                     <label htmlFor="company">company</label>
@@ -62,17 +65,18 @@ function ExperienceSection({printMode}){
                 </div>
                 <div>
                     <label htmlFor="responsibilities">responsibilities</label>
-                    <input type="text" name="responsibilities"  id="responsibilities" placeholder={experienceInfo.responsibilities} />
+                    <textarea name="responsibilities"  id="responsibilities" placeholder={experienceInfo.responsibilities} ></textarea>
                 </div>
                
                 
                 <button type="submit">submit</button>
             </form>
-        </div>
+        </section>
     )}else{
      return(
-        <div>
-            <h3>{experienceInfo.company}</h3>
+        <section>
+            <h3><FontAwesomeIcon icon={faBriefcase} />           Experience</h3>
+            <p>{experienceInfo.company}</p>
             <p>{experienceInfo.position}</p>
             <p>{experienceInfo.location}</p>
             <p>{experienceInfo.from}</p>
@@ -80,7 +84,7 @@ function ExperienceSection({printMode}){
             <p>{experienceInfo.responsibilities}</p>
           
             <button onClick={()=>setEditMode(true)}>edit</button>
-        </div>
+        </section>
      )
     }
 

@@ -1,5 +1,10 @@
 import { useState } from "react"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons"
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons"
+import { faAt } from "@fortawesome/free-solid-svg-icons"
+import { faPhone } from "@fortawesome/free-solid-svg-icons"
+import '../styles/header.css'
 function PersonalSection({printMode}){
     const [editMode,setEditMode] = useState(true)
     const [PersonalInfo,setPersonalInfo] = useState({
@@ -37,47 +42,61 @@ function PersonalSection({printMode}){
    
  if(editMode && !printMode){
     return (
-        <div>
+        <section className="header-data">
             <form onSubmit={setData} >
-                <div>
-                    <label htmlFor="name">name</label>
-                    <input type="text" name="name"  id="name" placeholder={PersonalInfo.name} />
-                </div>
-                <div>
-                    <label htmlFor="title">title</label>
-                    <input type="text" name="title"  id="title" placeholder={PersonalInfo.title} />
-                </div>
-                <div>
-                    <label htmlFor="email">email</label>
-                    <input type="email" name="email" id="email" placeholder={PersonalInfo.email} />
-                </div>
-                <div>
-                    <label htmlFor="phone">phone</label>
-                     <input type="tel" name="phone" id="phone" placeholder={PersonalInfo.phone} />
-                </div>
-               <div>
-                <label htmlFor="location">location</label>
-                <input type="text" name="location" id="location" placeholder={PersonalInfo.location} />
-               </div>
-                <div>
-                    <label htmlFor="website">website</label>
-                    <input type="text" name="website" id="website" placeholder={PersonalInfo.website} />
-                </div>
+                <fieldset className="main-data">
+                    <div>
+                        <label htmlFor="name">name</label>
+                        <input type="text" name="name"  id="name" placeholder={PersonalInfo.name} />
+                    </div>
+                    <div>
+                        <label htmlFor="title">title</label>
+                        <input type="text" name="title"  id="title" placeholder={PersonalInfo.title} />
+                    </div>
+                </fieldset>
+                <fieldset className="details">
+                        <div>
+                            <label htmlFor="email">email</label>
+                            <input type="email" name="email" id="email" placeholder={PersonalInfo.email} />
+                        </div>
+                        <div>
+                            <label htmlFor="phone">phone</label>
+                            <input type="tel" name="phone" id="phone" placeholder={PersonalInfo.phone} />
+                        </div>
+                        <div>
+                            <label htmlFor="location">location</label>
+                            <input type="text" name="location" id="location" placeholder={PersonalInfo.location} />
+                        </div>
+                        <div>
+                            <label htmlFor="website">website</label>
+                            <input type="text" name="website" id="website" placeholder={PersonalInfo.website} />
+                        </div>
+                </fieldset>
                 
                 <button type="submit">submit</button>
             </form>
-        </div>
+        </section>
     )}else{
      return(
-        <div>
-            <h3>{PersonalInfo.name}</h3>
-            <p>{PersonalInfo.title}</p>
-            <p>{PersonalInfo.phone}</p>
-            <p>{PersonalInfo.email}</p>
-            <p>{PersonalInfo.location}</p>
-            <p>{PersonalInfo.website}</p>
+        <section className="header-data" >
+            <section className="main-data">
+                <h3>{PersonalInfo.name}</h3>
+                <p>{PersonalInfo.title}</p>
+            </section>
+            <section className="details">
+                <p><FontAwesomeIcon icon={faPhone} />
+                    {PersonalInfo.phone}</p>
+                <p><FontAwesomeIcon icon={faAt} />
+                    {PersonalInfo.email}</p>
+                <p><FontAwesomeIcon icon={faLocationDot} />
+                    {PersonalInfo.location}</p>
+                <p><FontAwesomeIcon icon={faGlobe} />
+                    {PersonalInfo.website}</p>
+            </section>
+           
+         
             <button onClick={()=>setEditMode(true)}>edit</button>
-        </div>
+        </section>
      )
     }
 

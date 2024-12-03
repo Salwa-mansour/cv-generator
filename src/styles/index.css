@@ -1,0 +1,71 @@
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+:root{
+    --main-spacing:1.5rem
+}
+
+p{
+   padding-inline-start:.5rem ;
+  
+}
+svg{
+    margin-inline: .5rem;
+}
+header{
+    background-color: #f5f5f5;
+}
+div{
+    position: relative;
+  
+}
+fieldset{
+    border: none;
+}
+fieldset > div ,p,
+form >div,
+textarea{
+    margin-bottom: .5rem;
+}
+section{
+   
+    position: relative;
+    padding-inline:calc(2* var(--main-spacing));
+    padding-block: calc(var(--main-spacing));
+   width: 90%;
+   margin: auto;
+   max-width: 1200px;
+}
+button{
+   
+    padding: .5rem;
+    margin-inline-start: calc(2* var(--main-spacing));
+    background-color: rgb(31, 31, 77);
+    color: #f5f5f5;
+    border-radius: 6px;
+   width: 4rem;
+}
+label{
+    display: inline-block;
+    min-width: 3.5rem;
+    margin-inline-end: .1rem;
+}
+textarea,
+input{
+    min-width: 50%;
+    display: block;
+    padding: .25rem;
+}
+
+@media print {
+   header p,
+   header h3{
+    white-space: no-wrap;
+   }
+    button{
+     display: none;
+    }
+}

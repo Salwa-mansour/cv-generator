@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons"
+
 
 function OverviewSection({printMode}){
     const [editMode,setEditMode] = useState(true)
@@ -26,22 +29,25 @@ function OverviewSection({printMode}){
 
     if(editMode && !printMode){
         return(
-        <>
-            
+        <section>
+       
+            <h3><FontAwesomeIcon icon={faBars} />
+            Overview</h3>
             <form onSubmit={setData}>
             <label htmlFor="overview"></label>
              <textarea name="text" id="overview" placeholder={overview.text} cols="10" rows="5"></textarea>
              <button type="submit">submit</button>
            </form> 
-        </>
+         </section>
         );  
     }else{
         return(
-            <>
-                <h3>Overview</h3>
+            <section>
+                <h3><FontAwesomeIcon icon={faBars} />
+                Overview</h3>
                 <p>{overview.text}</p>
                 <button onClick={()=>setEditMode(true)}>edit</button>
-            </>
+            </section>
         )
     }
 }

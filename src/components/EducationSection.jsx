@@ -1,4 +1,7 @@
 import { useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGraduationCap } from "@fortawesome/free-solid-svg-icons"
+
 
 function EducationSection({printMode}){
     const [editMode,setEditMode] = useState(true)
@@ -36,7 +39,9 @@ function EducationSection({printMode}){
    
  if(editMode && !printMode){
     return (
-        <div>
+        <section>
+              <h3><FontAwesomeIcon icon={faGraduationCap} />
+              Education</h3>
             <form onSubmit={setData} >
                 <div>
                     <label htmlFor="degree">degree</label>
@@ -62,18 +67,20 @@ function EducationSection({printMode}){
                 
                 <button type="submit">submit</button>
             </form>
-        </div>
+        </section>
     )}else{
      return(
-        <div>
-            <h3>{educationInfo.degree}</h3>
+        <section>
+            <h3><FontAwesomeIcon icon={faGraduationCap} />
+            Education</h3>
+            <p>{educationInfo.degree}</p>
             <p>{educationInfo.school}</p>
             <p>{educationInfo.from}</p>
             <p>{educationInfo.to}</p>
             <p>{educationInfo.major}</p>
           
             <button onClick={()=>setEditMode(true)}>edit</button>
-        </div>
+        </section>
      )
     }
 
